@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Card = ({ image, title, description }) => {
+const Card = ({ image, title, description, toggleModal }) => {
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+    <div className="max-w-xs rounded overflow-hidden shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+        onClick={toggleModal}
+    >
       <div
         className="bg-cover bg-center h-64"
         style={{ backgroundImage: `url(${image})` }}

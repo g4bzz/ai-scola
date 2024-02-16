@@ -2,6 +2,8 @@
 import { Disclosure,  } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Card from './components/Card'; // Importe o componente Card
+import Book from './components/Book';
+import { useState } from 'react';
 const navigation = [
   { name: 'Home', href: '#', current: true },
   { name: 'Ciência', href: '#', current: false },
@@ -15,6 +17,13 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+
+  const [isopen, setIsopen] = useState(false);
+
+  function toggleModal() {
+    setIsopen(!isopen);
+  }
+
   return (
     <>
       <div className="min-h-full">
@@ -96,38 +105,46 @@ export default function Example() {
 								image="/images/frogney.jpeg"
 								title="Título do Card"
 								description="Descrição do Card"
+                toggleModal={toggleModal}
 							/>
 						<Card
 								image="/images/frogney.jpeg"
 								title="Título do Card"
 								description="Descrição do Card"
+                toggleModal={toggleModal}
 							/>
 						<Card
 								image="/images/frogney.jpeg"
 								title="Título do Card"
 								description="Descrição do Card"
+                toggleModal={toggleModal}
 							/>
 						<Card
 								image="/images/frogney.jpeg"
 								title="Título do Card"
 								description="Descrição do Card"
+                toggleModal={toggleModal}
 							/>
 						<Card
 								image="/images/frogney.jpeg"
 								title="Título do Card"
 								description="Descrição do Card"
+                toggleModal={toggleModal}
 							/>
 						<Card
 								image="/images/frogney.jpeg"
 								title="Título do Card"
 								description="Descrição do Card"
+                toggleModal={toggleModal}
 							/>
 						<Card
 								image="/images/frogney.jpeg"
 								title="Título do Card"
 								description="Descrição do Card"
+                toggleModal={toggleModal}
 							/>
 						</div>
+            <Book isOpen={isopen} toggleModal={toggleModal} />
         </main>
       </div>
     </>
