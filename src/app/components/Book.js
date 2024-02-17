@@ -1,7 +1,19 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 
 function Book({ isOpen, toggleModal, title }) {
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const totalPages = 2; // Defina o número total de páginas do livro
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => (prevPage < totalPages - 1 ? prevPage + 1 : prevPage));
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage));
+  };
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -31,12 +43,16 @@ function Book({ isOpen, toggleModal, title }) {
               <div className="relative bg-white w-96 h-64 mx-auto rounded-xl shadow-xl">
                 <div className="absolute inset-0 flex">
                   {/* Left page */}
-                  <div className="w-1/2 bg-gray-100 rounded-l-xl"></div>
+                  {currentPage > 0 && (
+                    <div className="w-1/2 bg-black rounded-l-xl cursor-pointer" onClick={prevPage}></div>
+                  )}
 
                   {/* Right page */}
-                  <div className="w-1/2 bg-gray-100 rounded-r-xl"></div>
+                  {currentPage < totalPages - 1 && (
+                    <div className="w-1/2 bg-gray-100 rounded-r-xl cursor-pointer" onClick={nextPage}></div>
+                  )}
                 </div>
-                
+
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-center p-6">
                   <Dialog.Title className="text-lg font-medium leading-6 text-gray-900 mb-2">
