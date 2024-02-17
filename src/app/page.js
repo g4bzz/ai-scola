@@ -15,7 +15,7 @@ const navigation = [
 ]
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
@@ -31,8 +31,8 @@ export default function Example() {
 
   return (
     <>
-      <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-800">
+      <div className="min-h-full bg-white">
+        <Disclosure as="nav" className="bg-blue-500">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -69,8 +69,7 @@ export default function Example() {
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">
-                    {/* Menu Mobile */}
-                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-blue-500 p-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500">
                       <span className="absolute -inset-0.5" />
                       <span className="sr-only">Abrir menu</span>
                       {open ? (
@@ -91,7 +90,7 @@ export default function Example() {
                       as="a"
                       href={item.href}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        item.current ? 'bg-blue-700 text-white' : 'text-white hover:bg-blue-700 hover:text-white',
                         'block rounded-md px-3 py-2 text-base font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}

@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
-function Book({ isOpen, toggleModal }) {
+function Book({ isOpen, toggleModal, title }) {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -40,7 +40,7 @@ function Book({ isOpen, toggleModal }) {
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-center p-6">
                   <Dialog.Title className="text-lg font-medium leading-6 text-gray-900 mb-2">
-                    Title of the Book
+                    {title}
                   </Dialog.Title>
                   <p className="text-sm text-gray-500 mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum magna sit amet posuere vehicula. Ut efficitur arcu at ex malesuada, vitae lacinia nulla ultrices. Nulla facilisi. Proin eget lobortis purus, non posuere urna. 
