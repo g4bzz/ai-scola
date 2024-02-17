@@ -2,24 +2,16 @@
 import { Disclosure,  } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react';
-import Link from 'next/link'
 import About from './pages/about/page';
 import Home from './pages/home/page';
 
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Ciência', href: '#', current: false },
-  { name: 'História', href: '#', current: false },
-  { name: 'Tecnologia', href: '#', current: false },
-  { name: 'Sobre nós', href: '/about', current: false },
-]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
-
 	const [activeComponent, setActiveComponent] = useState(<Home />);
 	const [active, setActive] = useState('Início');
   
@@ -43,9 +35,7 @@ export default function Example() {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-
 												{pages.map((item) => (
-
 													<a 
 													href={item.link}
 													key={item.label}
@@ -84,20 +74,27 @@ export default function Example() {
 
               <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation.map((item) => (
-                    <Disclosure.Button
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      className={classNames(
-                        item.current ? 'bg-blue-700 text-white' : 'text-white hover:bg-blue-700 hover:text-white',
-                        'block rounded-md px-3 py-2 text-base font-medium'
-                      )}
-                      aria-current={item.current ? 'page' : undefined}
-                    >
-                      {item.name}
-                    </Disclosure.Button>
-                  ))}
+								{pages.map((item) => (
+										<Disclosure.Button
+											href={item.link}
+											key={item.label}
+											as='a'
+											onClick={(event) => {
+												event.preventDefault();
+												setActive(item.label);
+												setActiveComponent(item.component)
+											}}
+											className={classNames(
+												item.label === active 
+													? 'bg-blue-700 text-white'
+													: 'text-white hover:bg-blue-700 hover:text-white',
+												'block rounded-md px-3 py-2 text-base font-medium'
+												)}
+												aria-current='page'
+										>
+											{item.label}
+										</Disclosure.Button>
+									))}
                 </div>
               </Disclosure.Panel>
             </>
