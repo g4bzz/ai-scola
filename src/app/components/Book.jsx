@@ -1,18 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react';
 
 function Book({ isOpen, toggleModal, title }) {
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const totalPages = 4; // Defina o número total de páginas do livro
-
-  const nextPage = () => {
-    setCurrentPage((prevPage) => (prevPage < totalPages - 1 ? prevPage + 1 : prevPage));
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage));
-  };
 
   return (
     <>
@@ -41,12 +30,20 @@ function Book({ isOpen, toggleModal, title }) {
               leaveTo="opacity-0 translate-y-4"
             >
               <div className="fixed bg-white w-[60%] h-[80%] mx-auto rounded-xl shadow-xl ">
-                
+             
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-center p-6">
                   <Dialog.Title className="text-3xl font-medium  leading-6 text-gray-900 mb-2 text-center">
                     {title}
                   </Dialog.Title>
+                  <iframe
+                  className="murf-embed w-full"
+                  src="https://murf.ai/embeds/index.html?embedId=lsqorq7b"
+                  allowFullScreen
+                  title="Murf Embed Player"
+                  style={{ border: 'none' }}
+                  autoPlay
+                ></iframe>
                   <p className="text-lg text-gray-950 mb-4 h-full overflow-y-auto">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut urna consectetur, varius est eget, condimentum sapien. Integer ullamcorper libero a elit ultricies ullamcorper. Aliquam tempor magna sit amet erat venenatis, vitae fermentum lorem vestibulum. Quisque sit amet tortor vel neque malesuada mattis. Fusce ac tincidunt odio. Fusce vel nisi non dolor feugiat fermentum. Morbi id velit convallis, fermentum leo eget, malesuada eros. Nam eu justo ac elit accumsan dapibus nec at leo. Nulla quis ligula nec metus feugiat vehicula in id odio.
 

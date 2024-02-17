@@ -4,10 +4,14 @@ import Card from '../../components/Card';
 import { useState } from 'react';
 
 export default function Home() {
-	const [isopen, setIsopen] = useState(false);
+  const [isopen, setIsopen] = useState(false);
+  const [cardSelected, setCardSelected] = useState("")
+
   function toggleModal() {
     setIsopen(!isopen);
   }
+
+  const list = [1,2,3,4,5,6]
 
   return (
 		<>
@@ -18,50 +22,20 @@ export default function Home() {
 			</header>
 			<main>
 				<div className="mx-auto justify-center max-w-7xl py-6 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-x-3 gap-y-6 md:grid-cols-2 sm:grid-cols-1">
-					<Card
-							image="/images/frogney.jpeg"
-							title="Título do Card"
-							description="Descrição do Card"
-							toggleModal={toggleModal}
-						/>
-					<Card
-							image="/images/frogney.jpeg"
-							title="Título do Card"
-							description="Descrição do Card"
-							toggleModal={toggleModal}
-						/>
-					<Card
-							image="/images/frogney.jpeg"
-							title="Título do Card"
-							description="Descrição do Card"
-							toggleModal={toggleModal}
-						/>
-					<Card
-							image="/images/frogney.jpeg"
-							title="Título do Card"
-							description="Descrição do Card"
-							toggleModal={toggleModal}
-						/>
-					<Card
-							image="/images/frogney.jpeg"
-							title="Título do Card"
-							description="Descrição do Card"
-							toggleModal={toggleModal}
-						/>
-					<Card
-							image="/images/frogney.jpeg"
-							title="Título do Card"
-							description="Descrição do Card"
-							toggleModal={toggleModal}
-						/>
-					<Card
-							image="/images/frogney.jpeg"
-							title="Título do Card"
-							description="Descrição do Card"
-							toggleModal={toggleModal}
-						/>
+					{list.map((item) => (
+						// eslint-disable-next-line react/jsx-key
+						<Card
+						image="/images/frogney.jpeg"
+						title="Título do Card"
+						description={item}
+						toggleModal={toggleModal}
+						setCardSelect={setCardSelected}
+					/>
+					))}
+
+
 					</div>
-				<Book isOpen={isopen} toggleModal={toggleModal} title={"nome"}/>
+				<Book isOpen={isopen} toggleModal={toggleModal}  title={cardSelected}/>
 			</main>
 		</>
   )
