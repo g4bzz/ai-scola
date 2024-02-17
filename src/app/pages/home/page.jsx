@@ -61,7 +61,7 @@ export default function Home() {
 							toggleModal={toggleModal}
 						/>
 					</div>
-				<Book isOpen={isopen} toggleModal={toggleModal} />
+				<Book isOpen={isopen} toggleModal={toggleModal} title={"nome"}/>
 			</main>
 		</>
   )
