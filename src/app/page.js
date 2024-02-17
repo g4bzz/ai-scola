@@ -1,15 +1,17 @@
 "use client"; /* se nao usar essa zorra a pagina nao renderiza: https://github.com/tailwindlabs/headlessui/issues/1980 */
 import { Disclosure,  } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Card from './components/Card'; // Importe o componente Card
-import Book from './components/Book';
 import { useState } from 'react';
+import Link from 'next/link'
+import About from './pages/about/page';
+import Home from './pages/home/page';
+
 const navigation = [
   { name: 'Home', href: '#', current: true },
   { name: 'Ciência', href: '#', current: false },
   { name: 'História', href: '#', current: false },
   { name: 'Tecnologia', href: '#', current: false },
-  { name: 'Sobre nós', href: '#', current: false },
+  { name: 'Sobre nós', href: '/about', current: false },
 ]
 
 function classNames(...classes) {
@@ -18,11 +20,14 @@ function classNames(...classes) {
 
 export default function Example() {
 
-  const [isopen, setIsopen] = useState(false);
+	const [activeComponent, setActiveComponent] = useState(<Home />);
+	const [active, setActive] = useState('Início');
+  
 
-  function toggleModal() {
-    setIsopen(!isopen);
-  }
+	const pages = [
+		{ link: '/pages/home', label: 'Início', component: <Home /> },
+		{ link: '/pages/about', label: 'Sobre nós',  component: <About /> },
+	]
 
   return (
     <>
@@ -38,19 +43,26 @@ export default function Example() {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className={classNames(
-                              item.current
+
+												{pages.map((item) => (
+
+													<a 
+													href={item.link}
+													key={item.label}
+													onClick={(event) => {
+														event.preventDefault();
+														setActive(item.label);
+														setActiveComponent(item.component)
+													}}
+													className={classNames(
+                              item.label === active
                                 ? 'bg-gray-900 text-white'
                                 : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                               'rounded-md px-3 py-2 text-sm font-medium'
-                            )}
-                            aria-current={item.current ? 'page' : undefined}
-                          >
-                            {item.name}
+															)}
+															aria-current='page'
+															>
+                            {item.label}
                           </a>
                         ))}
                       </div>
@@ -92,60 +104,7 @@ export default function Example() {
             </>
           )}
         </Disclosure>
-
-        <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Home</h1>
-          </div>
-        </header>
-        <main>
-          <div className="mx-auto justify-center max-w-7xl py-6 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-x-3 gap-y-6 md:grid-cols-2 sm:grid-cols-1">
-						{/*  Your content */}
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						</div>
-            <Book isOpen={isopen} toggleModal={toggleModal} />
-        </main>
+						{activeComponent}
       </div>
     </>
   )
