@@ -1,19 +1,20 @@
-"use client"; /* se nao usar essa zorra a pagina nao renderiza: https://github.com/tailwindlabs/headlessui/issues/1980 */
-import { Disclosure,  } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Card from './components/Card'; // Importe o componente Card
+"use client"; 
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Card from './components/Card';
 import Book from './components/Book';
 import { useState } from 'react';
+
 const navigation = [
   { name: 'Home', href: '#', current: true },
   { name: 'Ciência', href: '#', current: false },
   { name: 'História', href: '#', current: false },
   { name: 'Tecnologia', href: '#', current: false },
   { name: 'Sobre nós', href: '#', current: false },
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
@@ -26,8 +27,8 @@ export default function Example() {
 
   return (
     <>
-      <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-800">
+      <div className="min-h-full bg-white">
+        <Disclosure as="nav" className="bg-blue-500">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -44,8 +45,8 @@ export default function Example() {
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                ? 'bg-blue-700 text-white'
+                                : 'text-white hover:bg-blue-700 hover:text-white',
                               'rounded-md px-3 py-2 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
@@ -57,8 +58,7 @@ export default function Example() {
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">
-                    {/* Menu Mobile */}
-                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-blue-500 p-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500">
                       <span className="absolute -inset-0.5" />
                       <span className="sr-only">Abrir menu</span>
                       {open ? (
@@ -79,7 +79,7 @@ export default function Example() {
                       as="a"
                       href={item.href}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        item.current ? 'bg-blue-700 text-white' : 'text-white hover:bg-blue-700 hover:text-white',
                         'block rounded-md px-3 py-2 text-base font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}
@@ -100,51 +100,51 @@ export default function Example() {
         </header>
         <main>
           <div className="mx-auto justify-center max-w-7xl py-6 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-x-3 gap-y-6 md:grid-cols-2 sm:grid-cols-1">
-						{/*  Your content */}
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						<Card
-								image="/images/frogney.jpeg"
-								title="Título do Card"
-								description="Descrição do Card"
-                toggleModal={toggleModal}
-							/>
-						</div>
-            <Book isOpen={isopen} toggleModal={toggleModal} />
+            {/*  Your content */}
+            <Card
+              image="/images/frogney.jpeg"
+              title="Título do Card"
+              description="Descrição do Card"
+              toggleModal={toggleModal}
+            />
+            <Card
+              image="/images/frogney.jpeg"
+              title="Título do Card"
+              description="Descrição do Card"
+              toggleModal={toggleModal}
+            />
+            <Card
+              image="/images/frogney.jpeg"
+              title="Título do Card"
+              description="Descrição do Card"
+              toggleModal={toggleModal}
+            />
+            <Card
+              image="/images/frogney.jpeg"
+              title="Título do Card"
+              description="Descrição do Card"
+              toggleModal={toggleModal}
+            />
+            <Card
+              image="/images/frogney.jpeg"
+              title="Título do Card"
+              description="Descrição do Card"
+              toggleModal={toggleModal}
+            />
+            <Card
+              image="/images/frogney.jpeg"
+              title="Título do Card"
+              description="Descrição do Card"
+              toggleModal={toggleModal}
+            />
+            <Card
+              image="/images/frogney.jpeg"
+              title="Título do Card"
+              description="Descrição do Card"
+              toggleModal={toggleModal}
+            />
+          </div>
+          <Book isOpen={isopen} toggleModal={toggleModal} title={"nome"} />
         </main>
       </div>
     </>
