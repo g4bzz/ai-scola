@@ -3,12 +3,35 @@
 
 ### Criação do portal:
 ```
-- gere um componente react que utiliza tailwindcss para representar a pagina inicial de um site, contendo uma navbar
+Gere um componente react que utiliza tailwindcss para representar a pagina inicial de um site, contendo uma navbar
 ```
 ```
-- gere um componente react referente a um card utilizando o tailwindcss, este card deve possuir uma imagem que fica no background e deve possuir um texto na parte inferior
+Gere um componente react referente a um card utilizando o tailwindcss, este card deve possuir uma imagem que fica no background e deve possuir um texto na parte inferior
 
-- adicione um efeito de hover no card
+Adicione um efeito de hover no card
+```
+```
+Quero que você crie um componente react (botão) que faça a troca do modo light para o modo dark e vice versa de uma aplicação web que utiliza react e tailwindcss
+```
+```
+{
+    "Dados": [
+        
+    ]
+}
+faça um json com um array contendo uma propriedade de título ,imagem , conteudo
+```
+```
+eu quero que modifique a div colocando para ficar espaçado os parágrafos
+```
+```
+Gere um "Sobre Nós" de um site que informe que a equipe possui integrantes: GABRIEL DE OLIVEIRA SANTOS, GUSTAVO CAETANO SANTOS e VITOR HUGO RIBEIRO TIBURTINO DE MELO que a ideia do site é deixar textos e historias complexas em algo mais simples para jovens contadas através de audios com leitura de IA.
+```
+```
+estruture a leitura de um arquivo .json usando react
+```
+```
+crie uma lista usando react e tailwindcss com os seguintes elementos Gabriel de Oliveira Santos, Gustavo Caetano Santos, Vitor Hugo Ribeiro Tiburtino de Melo
 ```
 
 ### Criação dos posts:
