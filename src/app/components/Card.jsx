@@ -3,7 +3,7 @@ import React from 'react';
 const Card = ({ dado, toggleModal,setCardSelect }) => {
   console.log(dado.imagem);
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+    <div className="max-w-xs bg-blue-500 text-white dark:bg-zinc-700 dark:text-gray-200 rounded overflow-hidden shadow-md shadow-gray-400 dark:shadow-slate-800 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
         onClick={() => {
           toggleModal()
           setCardSelect(dado)

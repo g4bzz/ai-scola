@@ -1,10 +1,11 @@
 "use client"; /* se nao usar essa zorra a pagina nao renderiza: https://github.com/tailwindlabs/headlessui/issues/1980 */
 import { Disclosure,  } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
 import { useState } from 'react';
 import About from './pages/about/page';
 import Home from './pages/home/page';
-
+import ThemeToggleButton from './components/ThemeToggle';
 
 
 function classNames(...classes) {
@@ -23,8 +24,8 @@ export default function Example() {
 
   return (
     <>
-      <div className="min-h-full bg-white">
-        <Disclosure as="nav" className="bg-blue-500">
+      <div className="min-h-full bg-white dark:bg-gradient-to-b from-zinc-500 to-zinc-400">
+        <Disclosure as="nav" className="bg-blue-500 dark:bg-slate-800">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -46,9 +47,9 @@ export default function Example() {
 													}}
 													className={classNames(
                               item.label === active 
-                                ? 'bg-blue-700 text-white'
-                                : 'text-white hover:bg-blue-700 hover:text-white',
-                              'rounded-md px-3 py-2 text-sm font-medium'
+                                ? 'bg-blue-700 text-white dark:bg-slate-500'
+                                : 'text-white hover:bg-blue-700 dark:hover:bg-gray-700 hover:text-white',
+                              'rounded-md px-3 py-2 text-sm font-medium font-semibold'
 															)}
 															aria-current='page'
 															>
@@ -58,6 +59,9 @@ export default function Example() {
                       </div>
                     </div>
                   </div>
+									<div className='flex justify-end'>
+										<ThemeToggleButton />
+									</div>
                   <div className="-mr-2 flex md:hidden">
                     <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-blue-500 p-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500">
                       <span className="absolute -inset-0.5" />
