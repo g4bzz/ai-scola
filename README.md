@@ -14,3 +14,11 @@ Se trata de uma plataforma web simples que agrega pequenos artigos reescritos e 
 ## Vídeo de demonstração
  Acesse [aqui](https://youtu.be/7oMThMWc3v0).
 
+## Relatório
+ Acesse [aqui](https://github.com/g4bzz/ai-scola/blob/main/Relatorio%20ai.scola.pdf).
+
+## Prompts usados
+ Acesse [aqui](https://github.com/g4bzz/ai-scola/blob/main/prompts_usados.md).
+
+ ## Ferramentas utilizadas
+  Acesse [aqui](https://github.com/g4bzz/ai-scola/blob/main/ferramentas_utilizadas.md).
